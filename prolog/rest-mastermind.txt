@@ -1,0 +1,154 @@
+POST
+http://localhost:8080/mastermind/api/choose_secret_random
+response
+{
+  "status": 0
+}
+
+PUT
+http://localhost:8080/mastermind/api/choose_secret
+{
+    "code": [
+    {"color": "green", "shape": "hexagon"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "green", "shape": "rectangle"},
+    {"color": "green", "shape": "square"}
+  ]
+}
+response
+{
+  "status": 0
+}
+
+
+POST
+http://localhost:8080/mastermind/api/evaluate_code
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "green", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+response
+{
+  "status": 0,
+  "nbBlack": 2,
+  "nbWhite": 1,
+  "nbBlue": 0
+}
+
+
+GET http://localhost:8080/mastermind/api/list_evaluations
+
+response:
+{
+  "status": 0,
+  "evaluations": {
+    "evaluation": {
+      "code": [
+        {
+          "color": "green",
+          "shape": "triangle"
+        },
+        {
+          "color": "yellow",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "hexagon"
+        }
+      ],
+      "nbBlack": 2,
+      "nbWhite": 1,
+      "nbBlue": 0
+    }
+  }
+}
+
+
+POST
+http://localhost:8080/mastermind/api/clear_evaluations
+response
+{
+  "status": 0
+}
+
+GET http://localhost:8080/mastermind/api/guess_secret
+response:
+{
+  "status": 0,
+  "code": [
+        {
+          "color": "green",
+          "shape": "triangle"
+        },
+        {
+          "color": "yellow",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "hexagon"
+        }
+   ]
+}
+
+
+PUR
+http://localhost:8080/mastermind/api/add_evaluation
+{
+   "evaluation": {
+      "code": [
+        {
+          "color": "green",
+          "shape": "triangle"
+        },
+        {
+          "color": "yellow",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "rectangle"
+        },
+        {
+          "color": "green",
+          "shape": "hexagon"
+        }
+      ],
+      "nbBlack": 2,
+      "nbWhite": 1,
+      "nbBlue": 0
+    }
+}
+response
+{
+  "status": 0,
+}
+
+
+
+==================
+
+
+
+chooseSecret
+chooseSecret(S)
+evaluateProposalOnSecret(P,NbBlack,NbWhite,NbBlue)
+getProposals(Proposals)
+
+
+clearProposalEvaluations
+guessSecretFromProposals(P)
+addProposalEvaluations(P,NbBlack,NbWhite,NbBlue)

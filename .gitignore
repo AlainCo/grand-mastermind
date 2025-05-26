@@ -1,0 +1,4 @@
+results.pl
+*.pl~
+badguesses.pl
+.vscode/

@@ -1,0 +1,146 @@
+@baseurl = http://localhost:8080/api
+@baseurlfiles = http://localhost:8080/
+###
+POST {{baseurl}}/choose_secret_random
+
+
+###
+POST {{baseurl}}/choose_secret
+Content-Type: application/json
+
+{
+    "code": [
+    {"color": "green", "shape": "hexagon"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "green", "shape": "rectangle"},
+    {"color": "green", "shape": "square"}
+  ]
+}
+
+###
+GET {{baseurl}}/get_code
+
+
+###
+POST {{baseurl}}/evaluate_code
+Content-Type: application/json
+Origin: http://localhost:5173
+
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "red", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+
+
+###
+GET {{baseurl}}/list_evaluations
+Origin: http://localhost:5173
+
+###
+POST {{baseurl}}/clear_evaluations
+
+
+###
+POST {{baseurl}}/clear_evaluation
+Content-Type: application/json
+
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "red", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+
+###
+POST {{baseurl}}/guess_code
+
+###
+POST {{baseurl}}/guess_possible_code
+
+
+###
+POST {{baseurl}}/guess_nearest_code
+Content-Type: application/json
+
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "red", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+
+###
+POST {{baseurl}}/add_evaluation
+Content-Type: application/json
+
+{
+   "evaluation": {
+      "code": [
+        {"color": "green", "shape": "triangle"},
+        {"color": "yellow", "shape": "rectangle"},
+        {"color": "red", "shape": "rectangle"},
+        {"color": "green", "shape": "hexagon"}
+          ],
+      "nbBlack": 0,
+      "nbWhite": 1,
+      "nbBlue": 0
+    }
+}
+
+###
+POST {{baseurl}}/possible_code
+Content-Type: application/json
+
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "red", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+
+###
+OPTIONS  {{baseurl}}/evaluate_code
+Content-Type: application/json
+Origin: http://localhost:5173
+
+
+
+###
+OPTIONS {{baseurl}}/list_evaluations
+Origin: http://localhost:5173
+
+###
+OPTIONS {{baseurl}}/list_evaluations
+Origin: http://localhost:8080
+
+###
+OPTIONS {{baseurl}}/possible_code
+Origin: http://localhost:5173
+
+
+###
+POST {{baseurl}}/possible_code
+Content-Type: application/json
+Origin: http://localhost:5173
+
+{
+    "code": [
+    {"color": "green", "shape": "triangle"},
+    {"color": "yellow", "shape": "rectangle"},
+    {"color": "red", "shape": "rectangle"},
+    {"color": "green", "shape": "hexagon"}
+  ]
+}
+###
+GET {{baseurlfiles}}/index.html
+
